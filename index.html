@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Image Pro offers free online tools to convert, compress, enhance, resize, rotate, and crop images effortlessly. Optimize your images for web, social media, or personal use with our user-friendly platform.">
+    <meta name="keywords" content="image converter, image compressor, image editor, jpg to png, png to jpg, webp converter, image resizer, image enhancer, online image tools">
+    <meta name="author" content="Image Pro Team">
+    <meta name="robots" content="index, follow">
+    <title>Image Pro - Free Online Image Conversion & Editing Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="canonical" href="https://www.imagepro.com">
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="Image Pro - Free Online Image Tools">
+    <meta property="og:description" content="Convert, compress, and edit images online for free with Image Pro. Perfect for web optimization and personal projects.">
+    <meta property="og:url" content="https://www.imagepro.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.imagepro.com/images/og-image.jpg">
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Image Pro",
+        "url": "https://www.imagepro.com",
+        "description": "Free online tools for image conversion, compression, and editing.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.imagepro.com/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+</head>
+<body class="light">
+    <header class="navbar">
+        <h1>Image Pro</h1>
+        <p class="site-description">Your one-stop solution for free online image conversion and editing tools. Convert between JPG, PNG, and WebP, compress images to your desired size, enhance quality, resize, rotate, or crop with ease.</p>
+        <nav class="nav-menu">
+            <div class="nav-item">
+                <span class="nav-link">Image Conversions</span>
+                <div class="dropdown">
+                    <a href="#image-conversions" class="dropdown-item"><span>📷</span>JPG to PNG</a>
+                    <a href="#image-conversions" class="dropdown-item"><span>📷</span>PNG to JPG</a>
+                    <a href="#image-conversions" class="dropdown-item"><span>🌐</span>Image to WebP</a>
+                    <a href="#image-conversions" class="dropdown-item"><span>📷</span>WebP to PNG</a>
+                    <a href="#image-conversions" class="dropdown-item"><span>📷</span>WebP to JPG</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <span class="nav-link">Image Editing Tools</span>
+                <div class="dropdown">
+                    <a href="#image-editing-tools" class="dropdown-item"><span>🗜️</span>Image Compressor</a>
+                    <a href="#image-editing-tools" class="dropdown-item"><span>✨</span>Image Enhancer</a>
+                    <a href="#image-editing-tools" class="dropdown-item"><span>📏</span>Image Resizer</a>
+                    <a href="#image-editing-tools" class="dropdown-item"><span>🔄</span>Image Rotator</a>
+                    <a href="#image-editing-tools" class="dropdown-item"><span>✂️</span>Image Cropper</a>
+                </div>
+            </div>
+        </nav>
+        <div class="theme-selector">
+            <button class="theme-btn" style="background: #f9fafb" onclick="setTheme('light')" aria-label="Switch to Light Theme"></button>
+            <button class="theme-btn" style="background: #374151" onclick="setTheme('dark')" aria-label="Switch to Dark Theme"></button>
+            <button class="theme-btn" style="background: #312e81" onclick="setTheme('neon')" aria-label="Switch to Neon Theme"></button>
+        </div>
+    </header>
+    <main class="container">
+        <section>
+            <h2 class="section-title" id="image-conversions">Image Conversions</h2>
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">📷</span>
+                    <h3>JPG to PNG</h3>
+                    <p class="tool-description">Convert JPG images to PNG with transparency support.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop JPG here or click to upload</p>
+                        <input type="file" id="jpg2png" accept="image/jpeg" onchange="showPreview('jpg2png')" aria-label="Upload JPG file">
+                    </div>
+                    <div class="preview-container" id="preview-jpg2png">
+                        <img id="previewImg-jpg2png" alt="Preview of uploaded JPG image">
+                    </div>
+                    <button onclick="convertImage('jpg2png', 'png')">Convert</button>
+                    <div class="progress-container" id="progress-jpg2png">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">📷</span>
+                    <h3>PNG to JPG</h3>
+                    <p class="tool-description">Convert PNG images to JPG for smaller file sizes.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop PNG here or click to upload</p>
+                        <input type="file" id="png2jpg" accept="image/png" onchange="showPreview('png2jpg')" aria-label="Upload PNG file">
+                    </div>
+                    <div class="preview-container" id="preview-png2jpg">
+                        <img id="previewImg-png2jpg" alt="Preview of uploaded PNG image">
+                    </div>
+                    <button onclick="convertImage('png2jpg', 'jpeg')">Convert</button>
+                    <div class="progress-container" id="progress-png2jpg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">🌐</span>
+                    <h3>Image to WebP</h3>
+                    <p class="tool-description">Convert any image to WebP for optimized web use.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="img2webp" accept="image/*" onchange="showPreview('img2webp')" aria-label="Upload image file">
+                    </div>
+                    <div class="preview-container" id="preview-img2webp">
+                        <img id="previewImg-img2webp" alt="Preview of uploaded image">
+                    </div>
+                    <button onclick="convertImage('img2webp', 'webp')">Convert</button>
+                    <div class="progress-container" id="progress-img2webp">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">📷</span>
+                    <h3>WebP to PNG</h3>
+                    <p class="tool-description">Convert WebP images back to PNG format.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop WebP here or click to upload</p>
+                        <input type="file" id="webp2png" accept="image/webp" onchange="showPreview('webp2png')" aria-label="Upload WebP file">
+                    </div>
+                    <div class="preview-container" id="preview-webp2png">
+                        <img id="previewImg-webp2png" alt="Preview of uploaded WebP image">
+                    </div>
+                    <button onclick="convertImage('webp2png', 'png')">Convert</button>
+                    <div class="progress-container" id="progress-webp2png">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">📷</span>
+                    <h3>WebP to JPG</h3>
+                    <p class="tool-description">Convert WebP images to JPG for wider compatibility.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop WebP here or click to upload</p>
+                        <input type="file" id="webp2jpg" accept="image/webp" onchange="showPreview('webp2jpg')" aria-label="Upload WebP file">
+                    </div>
+                    <div class="preview-container" id="preview-webp2jpg">
+                        <img id="previewImg-webp2jpg" alt="Preview of uploaded WebP image">
+                    </div>
+                    <button onclick="convertImage('webp2jpg', 'jpeg')">Convert</button>
+                    <div class="progress-container" id="progress-webp2jpg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title" id="image-editing-tools">Image Editing Tools</h2>
+            <div class="tools-grid">
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">🗜️</span>
+                    <h3>Image Compressor</h3>
+                    <p class="tool-description">Compress image to a specific size (KB/MB).</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="compressImg" accept="image/*" onchange="showPreview('compressImg'); displayOriginalSize('compressImg')" aria-label="Upload image file for compression">
+                    </div>
+                    <div class="preview-container" id="preview-compressImg">
+                        <img id="previewImg-compressImg" alt="Preview of uploaded image for compression">
+                    </div>
+                    <div class="size-info" id="originalSizeCompressImg">Original Size: <span>-</span></div>
+                    <div class="input-group">
+                        <label for="targetSize">Target Size:</label>
+                        <input type="number" id="targetSize" min="1" step="0.01" placeholder="e.g., 50" aria-label="Target size for compression">
+                        <select id="sizeUnit" aria-label="Unit for target size">
+                            <option value="kb">KB</option>
+                            <option value="mb">MB</option>
+                        </select>
+                    </div>
+                    <button onclick="compressImage('compressImg')">Compress</button>
+                    <div class="progress-container" id="progress-compressImg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="size-info" id="compressedSizeCompressImg" style="display: none;">Compressed Size: <span>-</span></div>
+                    <button id="downloadCompressImg" style="display: none;" onclick="downloadCompressedImage('compressImg')">Download Compressed</button>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">✨</span>
+                    <h3>Image Enhancer</h3>
+                    <p class="tool-description">Boost brightness and contrast for better visuals.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="enhanceImg" accept="image/*" onchange="showPreview('enhanceImg')" aria-label="Upload image file for enhancement">
+                    </div>
+                    <div class="preview-container" id="preview-enhanceImg">
+                        <img id="previewImg-enhanceImg" alt="Preview of uploaded image for enhancement">
+                    </div>
+                    <button onclick="enhanceImage('enhanceImg')">Enhance</button>
+                    <div class="progress-container" id="progress-enhanceImg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">📏</span>
+                    <h3>Image Resizer</h3>
+                    <p class="tool-description">Adjust image dimensions to your specifications.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="resizeImg" accept="image/*" onchange="showPreview('resizeImg')" aria-label="Upload image file for resizing">
+                    </div>
+                    <div class="preview-container" id="preview-resizeImg">
+                        <img id="previewImg-resizeImg" alt="Preview of uploaded image for resizing">
+                    </div>
+                    <div class="input-group">
+                        <label for="resizeWidth">Width (px):</label>
+                        <input type="number" id="resizeWidth" min="1" value="800" aria-label="Width in pixels">
+                    </div>
+                    <div class="input-group">
+                        <label for="resizeHeight">Height (px):</label>
+                        <input type="number" id="resizeHeight" min="1" value="600" aria-label="Height in pixels">
+                    </div>
+                    <button onclick="resizeImage('resizeImg')">Resize</button>
+                    <div class="progress-container" id="progress-resizeImg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">🔄</span>
+                    <h3>Image Rotator</h3>
+                    <p class="tool-description">Rotate images by any angle effortlessly.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="rotateImg" accept="image/*" onchange="showPreview('rotateImg')" aria-label="Upload image file for rotation">
+                    </div>
+                    <div class="preview-container" id="preview-rotateImg">
+                        <img id="previewImg-rotateImg" alt="Preview of uploaded image for rotation">
+                    </div>
+                    <div class="input-group">
+                        <label for="rotateAngle">Angle (degrees):</label>
+                        <input type="number" id="rotateAngle" value="90" aria-label="Rotation angle in degrees">
+                    </div>
+                    <button onclick="rotateImage('rotateImg')">Rotate</button>
+                    <div class="progress-container" id="progress-rotateImg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+                <article class="tool-card">
+                    <span class="tool-icon" aria-hidden="true">✂️</span>
+                    <h3>Image Cropper</h3>
+                    <p class="tool-description">Crop images directly with a draggable selection.</p>
+                    <div class="upload-area">
+                        <p class="upload-label">Drop image here or click to upload</p>
+                        <input type="file" id="cropImg" accept="image/*" onchange="showPreview('cropImg'); previewCropImage('cropImg')" aria-label="Upload image file for cropping">
+                    </div>
+                    <div class="preview-container" id="preview-cropImg" style="display: none;">
+                        <img id="previewImg-cropImg" alt="Preview of uploaded image for cropping">
+                    </div>
+                    <div class="crop-preview" id="cropPreview">
+                        <img id="cropImage" alt="Crop preview of uploaded image">
+                        <div class="crop-area" id="cropArea" aria-label="Crop selection area"></div>
+                    </div>
+                    <button onclick="cropImage('cropImg')">Crop</button>
+                    <div class="progress-container" id="progress-cropImg">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>About Us</h4>
+            <p>We are the Image Pro Team, dedicated to providing free, high-quality online tools for image processing. Our mission is to simplify image editing and conversion for everyone, from casual users to professionals.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: <a href="mailto:support@imagepro.com">support@imagepro.com</a></p>
+            <p>Phone: +1-800-IMAGE-PRO</p>
+            <p>Address: 123 Image Lane, Pixel City, Web 12345</p>
+        </div>
+        <div class="footer-section">
+            <p>&copy; 2025 Image Pro. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
